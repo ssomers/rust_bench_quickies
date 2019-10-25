@@ -1,3 +1,4 @@
+#![cfg(test)]
 static IT: char = 'a';
 
 fn options() -> [Option<&'static char>; 200] {
