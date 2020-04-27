@@ -2,7 +2,7 @@
 
 Simple benchmarks of Rust (standard library) features.
 
-* option_cardinality: various ways to convert a boolean to an integer listed under a [stackoverflow question](https://stackoverflow.com/questions/55461617/how-do-i-convert-a-boolean-to-an-integer-in-rust/55461689?noredirect=1#comment108486795_55461689), in particular for converting `Option::is_some` into the number of elements in an Option container.
+* option_cardinality: various ways to convert a boolean to an integer listed under a [stackoverflow question](https://stackoverflow.com/questions/55461617/how-do-i-convert-a-boolean-to-an-integer-in-rust), in particular for converting `Option::is_some` into the number of elements in an Option container.
 * btreeset_binary_contains vs btreeset_binary_contains_if_not_empty: when sets are quite likely to be empty, `!set.is_empty() && set.contains(elementt)` is faster than `set.contains(element)` on its own.
 * btreeset_general_contains vs btreeset_general_contains_if_not_empty: found the equilibrium where this trick evens out.
 * btreeset_iter vs btreeset_range: creating an iterator takes longer than creating a range, that is kind of a pair of iterators. Which is solved in [issue #62924](https://github.com/rust-lang/rust/issues/62924), except that the numbers say it isn't!? To be continued...
@@ -10,4 +10,4 @@ Simple benchmarks of Rust (standard library) features.
 ## How to run this?
 
     rustup install nightly
-    cargo +nightly bench
+    rustup run nightly cargo bench
