@@ -1,4 +1,3 @@
-#![cfg(test)]
 use std::collections::BTreeSet;
 
 fn various_size_sets() -> Vec<BTreeSet<i32>> {
