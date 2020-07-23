@@ -2,8 +2,8 @@ use std::hint::unreachable_unchecked;
 
 static IT: char = 'a';
 
-fn options() -> [Option<&'static char>; 200] {
-    [Some(&IT); 200]
+fn options() -> [Option<&'static char>; 1000] {
+    [Some(&IT); 1000]
 }
 
 #[bench]
