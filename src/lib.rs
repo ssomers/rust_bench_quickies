@@ -5,3 +5,4 @@ extern crate test;
 mod btreemap;
 mod btreeset;
 mod option_cardinality;
+mod option_unwrap;
