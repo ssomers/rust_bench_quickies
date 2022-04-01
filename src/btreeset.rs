@@ -25,22 +25,22 @@ fn empty_or_singleton_sets() -> Vec<BTreeSet<i32>> {
 }
 
 #[bench]
-pub fn btreeset_range(b: &mut test::Bencher) {
+pub fn btreeset_range_first(b: &mut test::Bencher) {
     let sets = various_size_sets();
     b.iter(|| {
         for set in sets.iter() {
-            let x = set.range(..);
+            let x = set.range(..).next();
             test::black_box(x);
         }
     })
 }
 
 #[bench]
-pub fn btreeset_iter(b: &mut test::Bencher) {
+pub fn btreeset_iter_first(b: &mut test::Bencher) {
     let sets = various_size_sets();
     b.iter(|| {
         for set in sets.iter() {
-            let x = set.iter();
+            let x = set.iter().next();
             test::black_box(x);
         }
     })

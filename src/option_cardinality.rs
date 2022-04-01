@@ -53,7 +53,35 @@ pub fn is_some_if(b: &mut test::Bencher) {
 }
 
 #[bench]
+pub fn is_some_match(b: &mut test::Bencher) {
+    let options = options();
+    b.iter(|| {
+        for option in options.iter() {
+            let x: usize = match option.is_some() {
+                true => 1,
+                false => 0,
+            };
+            test::black_box(x);
+        }
+    })
+}
+
+#[bench]
 pub fn matched(b: &mut test::Bencher) {
+    let options = options();
+    b.iter(|| {
+        for option in &options {
+            let x: usize = match option {
+                Some(_) => 1,
+                None => 0,
+            };
+            test::black_box(x);
+        }
+    })
+}
+
+#[bench]
+pub fn iter_match(b: &mut test::Bencher) {
     let options = options();
     b.iter(|| {
         for option in options.iter() {
